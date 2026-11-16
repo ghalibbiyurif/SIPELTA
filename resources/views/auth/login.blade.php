@@ -66,7 +66,7 @@
                 <h2>Masuk ke Akun Anda</h2>
                 <p>Silakan masukkan kredensial terdaftar untuk mengakses sistem SIPELTA.</p>
 
-                <form class="login-form">
+                <form class="login-form" data-role-login>
                     <label>Email / Username</label>
                     <div class="field">
                         <span class="field-icon">◌</span>
@@ -85,17 +85,26 @@
                         <a href="#">Lupa kata sandi?</a>
                     </div>
 
-                    <button type="button" class="primary-btn" onclick="window.location.href='/admin'">Masuk <span>→</span></button>
-                </form>
+                    <fieldset class="role-switcher">
+                        <legend>Login sebagai</legend>
+                        <div class="pill-group">
+                            <label class="role-option">
+                                <input type="radio" name="role" value="admin" checked>
+                                <span>Admin</span>
+                            </label>
+                            <label class="role-option">
+                                <input type="radio" name="role" value="guru">
+                                <span>Guru</span>
+                            </label>
+                            <label class="role-option">
+                                <input type="radio" name="role" value="osis">
+                                <span>OSIS</span>
+                            </label>
+                        </div>
+                    </fieldset>
 
-                <div class="role-switcher">
-                    <span>Login sebagai</span>
-                    <div class="pill-group">
-                        <button>Admin</button>
-                        <button>Guru</button>
-                        <button>OSI</button>
-                    </div>
-                </div>
+                    <button type="submit" class="primary-btn">Masuk <span>→</span></button>
+                </form>
 
                 <div class="info-box">
                     <span class="info-icon">i</span>

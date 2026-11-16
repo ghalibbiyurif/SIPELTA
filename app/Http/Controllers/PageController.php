@@ -16,7 +16,27 @@ class PageController extends Controller
 
     public function guruDashboard()
     {
-        return view('dashboard.guru');
+        return $this->guruPage('dashboard');
+    }
+
+    public function guruPage(string $page)
+    {
+        $pages = [
+            'dashboard' => 'dashboard',
+            'catat-keterlambatan' => 'catat-keterlambatan',
+            'periksa-barang' => 'periksa-barang',
+            'verifikasi-laporan' => 'verifikasi-laporan',
+            'riwayat-pelanggaran' => 'riwayat-pelanggaran',
+        ];
+
+        abort_unless(isset($pages[$page]), 404);
+
+        return view('dashboard.guru.'.$pages[$page]);
+    }
+
+    public function osisDashboard()
+    {
+        return view('dashboard.osis');
     }
 
     public function dataMaster()
