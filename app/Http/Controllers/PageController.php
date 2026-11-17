@@ -14,6 +14,11 @@ class PageController extends Controller
         return view('dashboard.admin');
     }
 
+    public function adminViolationTrends()
+    {
+        return view('dashboard.tren-pelanggaran');
+    }
+
     public function guruDashboard()
     {
         return $this->guruPage('dashboard');

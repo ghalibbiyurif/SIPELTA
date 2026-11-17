@@ -19,21 +19,13 @@
 
             <nav class="side-nav">
                 <div class="nav-label">Menu utama</div>
-                <a href="/admin" class="nav-item active">
+                <a href="{{ route('admin.dashboard') }}" class="nav-item{{ request()->routeIs('admin.dashboard') ? ' active' : '' }}">
                     <span class="nav-icon">▣</span>
                     <span>Dashboard</span>
                 </a>
-                <a href="/guru" class="nav-item">
-                    <span class="nav-icon">◫</span>
-                    <span>Catat Keterlambatan</span>
-                </a>
-                <a href="/data-master" class="nav-item">
-                    <span class="nav-icon">◌</span>
-                    <span>Periksa Barang Bawaan</span>
-                </a>
-                <a href="/admin" class="nav-item">
+                <a href="{{ route('admin.trends') }}" class="nav-item{{ request()->routeIs('admin.trends') ? ' active' : '' }}">
                     <span class="nav-icon">◈</span>
-                    <span>Verifikasi Laporan</span>
+                    <span>Tren Pelanggaran</span>
                 </a>
                 <a href="/admin" class="nav-item">
                     <span class="nav-icon">◍</span>
@@ -49,13 +41,14 @@
                 </a>
             </nav>
 
-            <div class="sidebar-user">
-                <div class="user-avatar">B</div>
-                <div>
-                    <div class="user-name">Bu Rina Marlina, S.Pd.</div>
-                    <div class="user-role">GURU / BK</div>
-                </div>
-            </div>
+            <a href="{{ route('login') }}" class="sidebar-user" aria-label="Kembali ke halaman login untuk memilih peran">
+                <span class="user-avatar">A</span>
+                <span class="sidebar-user-identity">
+                    <span class="user-name">Kembali ke Login</span>
+                    <span class="user-role">Pilih peran: Admin</span>
+                </span>
+                <span aria-hidden="true">↪</span>
+            </a>
         </aside>
 
         <main class="sipelta-page">

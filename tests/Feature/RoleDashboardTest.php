@@ -46,6 +46,29 @@ class RoleDashboardTest extends TestCase
         }
     }
 
+    public function test_admin_navigation_opens_the_violation_trends_page(): void
+    {
+        $this->get('/admin')
+            ->assertOk()
+            ->assertSeeText('Selamat datang, Admin')
+            ->assertSee('href="'.route('admin.trends').'"', false)
+            ->assertSee('href="'.route('login').'"', false)
+            ->assertSeeText('Kembali ke Login')
+            ->assertSeeText('Pilih peran: Admin')
+            ->assertSeeText('Tren Pelanggaran')
+            ->assertDontSeeText('Catat Keterlambatan')
+            ->assertDontSeeText('Periksa Barang Bawaan')
+            ->assertDontSeeText('Verifikasi Laporan');
+
+        $this->get('/admin/tren-pelanggaran')
+            ->assertOk()
+            ->assertSeeText('Tren & Statistik Pelanggaran Siswa')
+            ->assertSeeText('Matriks Rekapitulasi Pelanggaran Bulanan')
+            ->assertSeeText('Proporsi Kategori')
+            ->assertSee('class="nav-item active"', false)
+            ->assertDontSee('<img', false);
+    }
+
     public function test_osis_dashboard_is_available(): void
     {
         $this->get('/osis')
